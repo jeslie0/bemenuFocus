@@ -17,3 +17,13 @@ set $menu dmenu_path | bemenu -m "$(PATH-TO-REPOSITORY/bemenuFocus)" | xargs swa
 #+end_src
 
 Reload Sway and you should find that bemenu now appears on the active monitor. This should work if you have less than 10 monitors.
+* Passmenu
+If you want to get things like passmenu (or other programs that call bemenu) you need to make them call:
+#+begin_src bash
+bemenu -m "$(PATH-TO-REPOSITORY/bmenuFocus)"
+#+end_src
+rather than just "bemenu". You can find the location of files (in this case, passmenu) by running
+#+begin_src bash
+whereis passmenu
+#+end_src
+and changing it accordingly.
