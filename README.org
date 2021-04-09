@@ -1,0 +1,19 @@
+#+title: bemenuFocus
+#+author: James Leslie
+When using a multi-monitor setup and Sway on Wayland, bemenu doesn't appear on the monitor it is called from. This program fixes that
+* Prerequisites
+1. [[https://swaywm.org/][Sway]];
+2. [[https://github.com/Cloudef/bemenu][bemenu]];
+3. [[https://www.haskell.org/][Haskell]] (or just [[https://www.haskell.org/ghc/][GHC]] to compile the file).
+* Installation
+Download this repository and compile the Haskell file:
+#+begin_src bash
+ghc --make bemenufocus.hs
+#+end_src
+
+Change the bemenu option in your Sway configuration file to the following:
+#+begin_src conf
+set $menu dmenu_path | bemenu -m "$(PATH-TO-REPOSITORY/bemenuFocus)" | xargs swaymsg exec --
+#+end_src
+
+Reload Sway and you should find that bemenu now appears on the active monitor. This should work if you have less than 10 monitors.
