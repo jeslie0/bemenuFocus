@@ -18,7 +18,11 @@ set $menu dmenu_path | bemenu -m "$(PATH-TO-REPOSITORY/bemenuFocus)" | xargs swa
 
 Reload Sway and you should find that bemenu now appears on the active monitor. This should work if you have less than 10 monitors.
 ** Nix
-This is now a nix flake, so you can install it on your system if you use nix.
+This is now a nix flake, so you can install it on your system if you use nix with flakes enabled. Running
+#+begin_src shell
+nix build
+#+end_src
+in the repository will build the programme.
 * Passmenu
 If you want to get things like passmenu (or other programs that call bemenu) you need to make them call:
 #+begin_src bash

@@ -24,8 +24,8 @@ extra-source-files: CHANGELOG.org
 library
   hs-source-dirs:      src
   exposed-modules:     Lib
-  build-depends:       base ^>=4.14.1.0,
-                       process >= 1.6.13.2
+  build-depends:       base,
+                       process
 
 executable bemenuFocus
     main-is:          Main.hs
@@ -35,7 +35,7 @@ executable bemenuFocus
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
-    build-depends:    base ^>=4.14.3.0,
-                      process >= 1.6.13.2
+    build-depends:    base,
+                      process
     hs-source-dirs:   app
     default-language: Haskell2010

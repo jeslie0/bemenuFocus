@@ -17,13 +17,23 @@
 
           defaultPackage = self.packages.${system}.${packageName};
 
-          devShell = pkgs.mkShell {
-            buildInputs = with haskellPackages;
-              [ ghc
-                haskell-language-server
-                cabal-install
-              ];
-            inputsFrom = builtins.attrValues self.packages.${system};
+          devShell = haskellPackages.shellFor {
+            packages = p: [ self.defaultPackage.${system} ]; # This automatically pulls cabal libraries into the devshell, so they can be used in ghci
+            buildInputs = with haskellPackages; [ ghc
+                                                  haskell-language-server
+                                                  cabal-install
+                                                  apply-refact
+                                                  hlint
+                                                  stylish-haskell
+                                                  hasktags
+                                                  hindent
+                                                ];
+
+            # This will build the cabal project and add it to the path. We probably don't want that to happen.
+            # inputsFrom = builtins.attrValues self.packages.${system};
+
+            # Enables Hoogle for the builtin packages.
+            withHoogle = true;
           };
         }
     );
