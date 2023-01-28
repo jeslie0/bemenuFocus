@@ -12,7 +12,7 @@ version:            0.1.0.0
 -- bug-reports:
 
 -- The license under which the package is released.
--- license:
+license:            MIT
 author:             James Leslie
 maintainer:         jamesleslie@posteo.net
 
