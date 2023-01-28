@@ -10,7 +10,9 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         haskellPackages = pkgs.haskellPackages;
-        packageName = "bemenuFocus";
+        packageName = with builtins;
+          let cabalFileName = head ((filter (pkgs.lib.hasSuffix ".cabal")) (attrNames (readDir ./.)));
+          in head (match "^.*name\:\ *([^[:space:]]*).*$" (readFile "${./.}\/${cabalFileName}"));
       in
         {
           packages.${packageName} = haskellPackages.callCabal2nix packageName self {};

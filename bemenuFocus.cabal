@@ -1,6 +1,6 @@
 cabal-version:      2.4
 name:               bemenuFocus
-version:            0.1.0.0
+version:            0.1.1.0
 
 -- A short (one-line) description of the package.
 -- synopsis:
@@ -21,12 +21,6 @@ maintainer:         jamesleslie@posteo.net
 -- category:
 extra-source-files: CHANGELOG.org
 
-library
-  hs-source-dirs:      src
-  exposed-modules:     Lib
-  build-depends:       base,
-                       process
-
 executable bemenuFocus
     main-is:          Main.hs
 
@@ -37,5 +31,5 @@ executable bemenuFocus
     -- other-extensions:
     build-depends:    base,
                       process
-    hs-source-dirs:   app
+    hs-source-dirs:   src
     default-language: Haskell2010
